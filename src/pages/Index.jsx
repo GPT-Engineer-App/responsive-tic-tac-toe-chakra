@@ -131,15 +131,15 @@ const Index = () => {
         ))}
       </Grid>
       <Text mt={4} textAlign="center" fontWeight="bold">
-        {playerNames[player]}'s turn
+        {playerNames[player]} ({player})'s turn
       </Text>
       <Flex justify="center" mt={8}>
         <Box mr={8}>
-          <Text fontWeight="bold">{playerNames.X}</Text>
+          <Text fontWeight="bold">{playerNames.X} (X)</Text>
           <Text fontSize="2xl">{scores.X}</Text>
         </Box>
         <Box>
-          <Text fontWeight="bold">{playerNames.O}</Text>
+          <Text fontWeight="bold">{playerNames.O} (O)</Text>
           <Text fontSize="2xl">{scores.O}</Text>
         </Box>
       </Flex>
