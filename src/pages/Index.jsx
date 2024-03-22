@@ -202,8 +202,8 @@ const Index = () => {
         </ModalContent>
       </Modal>
       <Flex justify="center" mt={4}>
-        <Button leftIcon={<FaRedo />} variant="ghost" onClick={startNewGame}>
-          Restart Game
+        <Button leftIcon={<FaRedo />} variant="outline" onClick={startNewGame}>
+          Restart game
         </Button>
       </Flex>
     </Flex>
