@@ -98,7 +98,7 @@ const Index = () => {
   };
 
   return (
-    <Box p={4} bg="orange.50">
+    <Box p={4} minHeight="100vh">
       <Flex justify="space-between" align="center" mb={4}>
         <Heading as="h1" size="xl">
           Tic Tac Toe
