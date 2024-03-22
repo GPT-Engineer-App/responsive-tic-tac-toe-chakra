@@ -144,16 +144,29 @@ const Index = () => {
           </Box>
         ))}
       </Grid>
-      <Text mt={4} textAlign="center" fontWeight="bold">
-        {playerNames[player]} ({player})'s turn
-      </Text>
+      <Flex mt={4} justify="center" align="center">
+        <Text fontWeight="bold" mr={2}>
+          {playerNames[player]}'s turn
+        </Text>
+        {player === "X" ? <Icon as={FaTimes} color="red.500" /> : <Icon as={FaRegCircle} color="blue.500" />}
+      </Flex>
       <Flex justify="center" mt={8}>
         <Box mr={8}>
-          <Text fontWeight="bold">{playerNames.X} (X)</Text>
+          <Flex align="center">
+            <Text fontWeight="bold" mr={2}>
+              {playerNames.X}
+            </Text>
+            <Icon as={FaTimes} color="red.500" />
+          </Flex>
           <Text fontSize="2xl">{scores.X}</Text>
         </Box>
         <Box>
-          <Text fontWeight="bold">{playerNames.O} (O)</Text>
+          <Flex align="center">
+            <Text fontWeight="bold" mr={2}>
+              {playerNames.O}
+            </Text>
+            <Icon as={FaRegCircle} color="blue.500" />
+          </Flex>
           <Text fontSize="2xl">{scores.O}</Text>
         </Box>
       </Flex>
