@@ -9,6 +9,7 @@ const Index = () => {
   const [scores, setScores] = useState({ X: 0, O: 0 });
   const [playerNames, setPlayerNames] = useState({ X: "Player X", O: "Player O" });
   const [isModalOpen, setIsModalOpen] = useState(true);
+  const [lastSelectedCell, setLastSelectedCell] = useState(null);
 
   const toast = useToast();
 
@@ -29,6 +30,7 @@ const Index = () => {
     const newBoard = [...board];
     newBoard[index] = player;
     setBoard(newBoard);
+    setLastSelectedCell(index);
 
     const winner = calculateWinner(newBoard);
     if (winner) {
@@ -80,11 +82,19 @@ const Index = () => {
     setPlayer("X");
   };
 
-  const renderIcon = (value) => {
+  const renderIcon = (value, index) => {
     if (value === "X") {
-      return <Icon as={FaTimes} boxSize={12} color="red.500" />;
+      return (
+        <Box border={lastSelectedCell === index ? "1px solid" : "none"} borderColor="red.500" bg={lastSelectedCell === index ? "red.100" : "transparent"} borderRadius="md" display="flex" justifyContent="center" alignItems="center" w="100%" h="100%">
+          <Icon as={FaTimes} boxSize={12} color="red.500" />
+        </Box>
+      );
     } else if (value === "O") {
-      return <Icon as={FaRegCircle} boxSize={12} color="blue.500" />;
+      return (
+        <Box border={lastSelectedCell === index ? "1px solid" : "none"} borderColor="blue.500" bg={lastSelectedCell === index ? "blue.100" : "transparent"} borderRadius="md" display="flex" justifyContent="center" alignItems="center" w="100%" h="100%">
+          <Icon as={FaRegCircle} boxSize={12} color="blue.500" />
+        </Box>
+      );
     }
     return null;
   };
@@ -127,7 +137,7 @@ const Index = () => {
               aspectRatio: "1 / 1",
             }}
           >
-            {renderIcon(value)}
+            {renderIcon(value, index)}
           </Box>
         ))}
       </Grid>
