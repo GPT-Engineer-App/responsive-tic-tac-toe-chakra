@@ -9,7 +9,7 @@ const Index = () => {
   const [scores, setScores] = useState({ X: 0, O: 0 });
   const [playerNames, setPlayerNames] = useState({ X: "Player X", O: "Player O" });
   const [isModalOpen, setIsModalOpen] = useState(true);
-  const [lastSelectedCell, setLastSelectedCell] = useState(null);
+  const [selectedCells, setSelectedCells] = useState([]);
 
   const toast = useToast();
 
@@ -30,7 +30,7 @@ const Index = () => {
     const newBoard = [...board];
     newBoard[index] = player;
     setBoard(newBoard);
-    setLastSelectedCell(index);
+    setSelectedCells([...selectedCells, index]);
 
     const winner = calculateWinner(newBoard);
     if (winner) {
@@ -85,13 +85,13 @@ const Index = () => {
   const renderIcon = (value, index) => {
     if (value === "X") {
       return (
-        <Box border={lastSelectedCell === index ? "1px solid" : "none"} borderColor="red.500" bg={lastSelectedCell === index ? "red.100" : "transparent"} borderRadius="md" display="flex" justifyContent="center" alignItems="center" w="100%" h="100%">
+        <Box border={selectedCells.includes(index) ? "1px solid" : "none"} borderColor="red.500" bg={selectedCells.includes(index) ? "red.100" : "transparent"} borderRadius="md" display="flex" justifyContent="center" alignItems="center" w="100%" h="100%">
           <Icon as={FaTimes} boxSize={12} color="red.500" />
         </Box>
       );
     } else if (value === "O") {
       return (
-        <Box border={lastSelectedCell === index ? "1px solid" : "none"} borderColor="blue.500" bg={lastSelectedCell === index ? "blue.100" : "transparent"} borderRadius="md" display="flex" justifyContent="center" alignItems="center" w="100%" h="100%">
+        <Box border={selectedCells.includes(index) ? "1px solid" : "none"} borderColor="blue.500" bg={selectedCells.includes(index) ? "blue.100" : "transparent"} borderRadius="md" display="flex" justifyContent="center" alignItems="center" w="100%" h="100%">
           <Icon as={FaRegCircle} boxSize={12} color="blue.500" />
         </Box>
       );
@@ -105,6 +105,7 @@ const Index = () => {
 
   const startNewGame = () => {
     resetBoard();
+    setSelectedCells([]);
     setIsModalOpen(true);
   };
 
