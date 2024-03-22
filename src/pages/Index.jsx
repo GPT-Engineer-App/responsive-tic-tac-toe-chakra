@@ -178,10 +178,10 @@ const Index = () => {
           </Flex>
         </Box>
       </Flex>
-      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} isCentered>
         <ModalOverlay />
-        <ModalContent>
-          <ModalHeader>Enter Player Names</ModalHeader>
+        <ModalContent pb={6}>
+          <ModalHeader>Enter player names</ModalHeader>
           <ModalCloseButton />
           <ModalBody>
             <FormControl id="playerX" mb={4}>
@@ -189,17 +189,17 @@ const Index = () => {
                 <Icon as={FaTimes} color="red.500" mr={2} />
                 Player X
               </FormLabel>
-              <Input type="text" value={playerNames.X} onChange={(event) => handleNameChange(event, "X")} />
+              <Input type="text" value={playerNames.X} onChange={(event) => handleNameChange(event, "X")} placeholder="Enter player name" />
             </FormControl>
-            <FormControl id="playerO" mb={8}>
+            <FormControl id="playerO" mb={6}>
               <FormLabel>
                 <Icon as={FaRegCircle} color="blue.500" mr={2} />
                 Player O
               </FormLabel>
-              <Input type="text" value={playerNames.O} onChange={(event) => handleNameChange(event, "O")} />
+              <Input type="text" value={playerNames.O} onChange={(event) => handleNameChange(event, "O")} placeholder="Enter player name" />
             </FormControl>
-            <Button colorScheme="blue" onClick={() => setIsModalOpen(false)}>
-              Start Game
+            <Button colorScheme="blue" onClick={() => setIsModalOpen(false)} fontWeight="normal">
+              Start game
             </Button>
           </ModalBody>
         </ModalContent>
