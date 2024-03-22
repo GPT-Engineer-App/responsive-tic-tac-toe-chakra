@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Box, Button, Flex, Grid, Heading, Icon, Switch, Text, useColorMode, useToast } from "@chakra-ui/react";
+import { Box, Button, Flex, Grid, Heading, Icon, Switch, Text, useColorMode, useToast, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, FormControl, FormLabel, Input } from "@chakra-ui/react";
 import { FaTimes, FaRegCircle } from "react-icons/fa";
-import PlayerNameInput from "../components/PlayerNameInput";
 
 const Index = () => {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [player, setPlayer] = useState("X");
   const [scores, setScores] = useState({ X: 0, O: 0 });
   const [playerNames, setPlayerNames] = useState({ X: "Player X", O: "Player O" });
-  const [gameStarted, setGameStarted] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(true);
   const { colorMode, toggleColorMode } = useColorMode();
   const toast = useToast();
 
@@ -89,9 +88,14 @@ const Index = () => {
     return null;
   };
 
-  if (!gameStarted) {
-    return <PlayerNameInput playerNames={playerNames} setPlayerNames={setPlayerNames} setGameStarted={setGameStarted} />;
-  }
+  const handleNameChange = (event, player) => {
+    setPlayerNames({ ...playerNames, [player]: event.target.value });
+  };
+
+  const startNewGame = () => {
+    resetBoard();
+    setIsModalOpen(true);
+  };
 
   return (
     <Box p={4} bg="orange.50">
@@ -138,6 +142,31 @@ const Index = () => {
           <Text fontWeight="bold">{playerNames.O}</Text>
           <Text fontSize="2xl">{scores.O}</Text>
         </Box>
+      </Flex>
+      <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
+        <ModalOverlay />
+        <ModalContent>
+          <ModalHeader>Enter Player Names</ModalHeader>
+          <ModalCloseButton />
+          <ModalBody>
+            <FormControl id="playerX" mb={4}>
+              <FormLabel>Player X</FormLabel>
+              <Input type="text" value={playerNames.X} onChange={(event) => handleNameChange(event, "X")} />
+            </FormControl>
+            <FormControl id="playerO" mb={8}>
+              <FormLabel>Player O</FormLabel>
+              <Input type="text" value={playerNames.O} onChange={(event) => handleNameChange(event, "O")} />
+            </FormControl>
+            <Button colorScheme="blue" onClick={() => setIsModalOpen(false)}>
+              Start Game
+            </Button>
+          </ModalBody>
+        </ModalContent>
+      </Modal>
+      <Flex justify="center" mt={4}>
+        <Button colorScheme="blue" onClick={startNewGame}>
+          New Game
+        </Button>
       </Flex>
     </Box>
   );
