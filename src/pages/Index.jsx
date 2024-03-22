@@ -163,17 +163,17 @@ const Index = () => {
         </Box>
         <Box mr={8}>
           <Flex direction="column" align="flex-end">
+            <Text fontWeight="normal">Draws</Text>
+            <Text fontSize="2xl">{scores.draws}</Text>
+          </Flex>
+        </Box>
+        <Box>
+          <Flex direction="column" align="flex-end">
             <Flex align="center">
               <Icon as={FaRegCircle} color="blue.500" mr={2} />
               <Text fontWeight="normal">{playerNames.O}</Text>
             </Flex>
             <Text fontSize="2xl">{scores.O}</Text>
-          </Flex>
-        </Box>
-        <Box>
-          <Flex direction="column" align="flex-end">
-            <Text fontWeight="normal">Draws</Text>
-            <Text fontSize="2xl">{scores.draws}</Text>
           </Flex>
         </Box>
       </Flex>
