@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Box, Button, Flex, Grid, Heading, Icon, Text, useToast, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, FormControl, FormLabel, Input, Divider } from "@chakra-ui/react";
 import ColorModeToggle from "../components/ColorModeToggle";
-import { FaTimes, FaRegCircle, FaRedo } from "react-icons/fa";
+import { FaTimes, FaRegCircle, FaRedo, FaEquals } from "react-icons/fa";
 
 const Index = () => {
   const [board, setBoard] = useState(Array(9).fill(null));
@@ -163,8 +163,8 @@ const Index = () => {
           </Flex>
         </Box>
         <Box mr={8}>
-          <Flex direction="column" align="flex-end">
-            <Text fontWeight="normal">Draws</Text>
+          <Flex direction="column" align="center">
+            <Icon as={FaEquals} color="gray.500" boxSize={6} />
             <Text fontSize="2xl">{scores.draws}</Text>
           </Flex>
         </Box>
