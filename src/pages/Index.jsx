@@ -99,8 +99,9 @@ const Index = () => {
         {board.map((value, index) => (
           <Box
             key={index}
-            bg={colorMode === "dark" ? "gray.700" : "gray.100"}
-            borderRadius="md"
+            bg="gray.200"
+            border="1px solid"
+            borderColor="gray.400"
             w="100px"
             h="100px"
             onClick={() => handleClick(index)}
@@ -108,9 +109,8 @@ const Index = () => {
             display="flex"
             justifyContent="center"
             alignItems="center"
-            boxShadow="md"
             transition="all 0.2s"
-            _hover={{ transform: "scale(1.05)" }}
+            _hover={{ bg: "gray.300" }}
             sx={{
               aspectRatio: "1 / 1",
             }}
