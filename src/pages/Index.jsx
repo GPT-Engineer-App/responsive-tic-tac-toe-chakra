@@ -33,24 +33,19 @@ const Index = () => {
     setSelectedCells([...selectedCells, index]);
 
     const winner = calculateWinner(newBoard);
-    const xColor = "red";
-    const oColor = "blue";
-    const drawColor = "gray";
-
     if (winner) {
-      const toastColor = winner === "X" ? xColor : oColor;
-      setScores({ ...scores, [winner]: scores[winner] + 1 });
       toast({
-        title: `${playerNames[winner]} (${winner}) wins!`,
-        status: toastColor,
+        title: `Player ${winner} wins!`,
+        status: "success",
         duration: 3000,
         isClosable: true,
       });
+      setScores({ ...scores, [winner]: scores[winner] + 1 });
       setTimeout(resetBoard, 3000);
     } else if (newBoard.every((cell) => cell !== null)) {
       toast({
         title: "It's a draw!",
-        status: drawColor,
+        status: "info",
         duration: 3000,
         isClosable: true,
       });
