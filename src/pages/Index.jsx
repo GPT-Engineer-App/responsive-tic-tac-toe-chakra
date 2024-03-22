@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Box, Button, Flex, Grid, Heading, Icon, Switch, Text, useColorMode, useToast } from "@chakra-ui/react";
 import { FaTimes, FaRegCircle } from "react-icons/fa";
+import PlayerNameInput from "../components/PlayerNameInput";
 
 const Index = () => {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [player, setPlayer] = useState("X");
   const [scores, setScores] = useState({ X: 0, O: 0 });
+  const [playerNames, setPlayerNames] = useState({ X: "Player X", O: "Player O" });
+  const [gameStarted, setGameStarted] = useState(false);
   const { colorMode, toggleColorMode } = useColorMode();
   const toast = useToast();
 
@@ -86,6 +89,10 @@ const Index = () => {
     return null;
   };
 
+  if (!gameStarted) {
+    return <PlayerNameInput playerNames={playerNames} setPlayerNames={setPlayerNames} setGameStarted={setGameStarted} />;
+  }
+
   return (
     <Box p={4} bg="orange.50">
       <Flex justify="space-between" align="center" mb={4}>
@@ -120,15 +127,15 @@ const Index = () => {
         ))}
       </Grid>
       <Text mt={4} textAlign="center" fontWeight="bold">
-        Player {player}'s turn
+        {playerNames[player]}'s turn
       </Text>
       <Flex justify="center" mt={8}>
         <Box mr={8}>
-          <Text fontWeight="bold">Player X</Text>
+          <Text fontWeight="bold">{playerNames.X}</Text>
           <Text fontSize="2xl">{scores.X}</Text>
         </Box>
         <Box>
-          <Text fontWeight="bold">Player O</Text>
+          <Text fontWeight="bold">{playerNames.O}</Text>
           <Text fontSize="2xl">{scores.O}</Text>
         </Box>
       </Flex>
