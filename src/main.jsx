@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import { ChakraProvider, extendTheme, useColorMode } from "@chakra-ui/react";
+import { Global } from "@emotion/react";
 
 const colors = {
   brand: {
@@ -16,7 +17,19 @@ const theme = extendTheme({
   config: {
     initialColorMode: "dark",
   },
+  fonts: {
+    body: "IBM Plex Sans, sans-serif",
+    heading: "IBM Plex Sans, sans-serif",
+  },
 });
+
+const Fonts = () => (
+  <Global
+    styles={`
+      @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;700&display=swap');
+    `}
+  />
+);
 
 function Root() {
   const { colorMode } = useColorMode();
@@ -24,6 +37,7 @@ function Root() {
   return (
     <React.StrictMode>
       <ChakraProvider theme={theme}>
+        <Fonts />
         <App />
       </ChakraProvider>
     </React.StrictMode>
