@@ -146,7 +146,7 @@ const Index = () => {
         ))}
       </Grid>
       <Flex mt={4} justify="center" align="center">
-        <Text fontWeight="bold" mr={2}>
+        <Text fontWeight="normal" mr={2}>
           {playerNames[player]}'s turn
         </Text>
         {player === "X" ? <Icon as={FaTimes} color="red.500" /> : <Icon as={FaRegCircle} color="blue.500" />}
@@ -156,7 +156,7 @@ const Index = () => {
           <Flex direction="column" align="flex-end">
             <Flex align="center">
               <Icon as={FaTimes} color="red.500" mr={2} />
-              <Text fontWeight="bold">{playerNames.X}</Text>
+              <Text fontWeight="normal">{playerNames.X}</Text>
             </Flex>
             <Text fontSize="2xl">{scores.X}</Text>
           </Flex>
@@ -165,14 +165,14 @@ const Index = () => {
           <Flex direction="column" align="flex-end">
             <Flex align="center">
               <Icon as={FaRegCircle} color="blue.500" mr={2} />
-              <Text fontWeight="bold">{playerNames.O}</Text>
+              <Text fontWeight="normal">{playerNames.O}</Text>
             </Flex>
             <Text fontSize="2xl">{scores.O}</Text>
           </Flex>
         </Box>
         <Box>
           <Flex direction="column" align="flex-end">
-            <Text fontWeight="bold">Draws</Text>
+            <Text fontWeight="normal">Draws</Text>
             <Text fontSize="2xl">{scores.draws}</Text>
           </Flex>
         </Box>
@@ -204,7 +204,7 @@ const Index = () => {
         </ModalContent>
       </Modal>
       <Flex justify="center" mt={4}>
-        <Button leftIcon={<FaRedo />} variant="outline" onClick={startNewGame}>
+        <Button leftIcon={<FaRedo />} variant="outline" fontWeight="normal" onClick={startNewGame}>
           Restart game
         </Button>
       </Flex>
