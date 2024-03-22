@@ -145,13 +145,13 @@ const Index = () => {
           </Box>
         ))}
       </Grid>
-      <Flex mt={4} justify="center" align="center">
+      <Flex mt={4} justify="center" align="center" maxW="400px" mx="auto">
         <Text fontWeight="normal" mr={2}>
           {playerNames[player]}'s turn
         </Text>
         {player === "X" ? <Icon as={FaTimes} color="red.500" /> : <Icon as={FaRegCircle} color="blue.500" />}
       </Flex>
-      <Divider my={8} />
+      <Divider my={8} maxW="400px" mx="auto" />
       <Flex justify="center" mb={12} align="flex-end">
         <Box mr={8}>
           <Flex direction="column" align="flex-end">
