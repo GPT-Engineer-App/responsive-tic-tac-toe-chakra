@@ -6,7 +6,7 @@ import { FaTimes, FaRegCircle } from "react-icons/fa";
 const Index = () => {
   const [board, setBoard] = useState(Array(9).fill(null));
   const [player, setPlayer] = useState("X");
-  const [scores, setScores] = useState({ X: 0, O: 0 });
+  const [scores, setScores] = useState({ X: 0, O: 0, draws: 0 });
   const [playerNames, setPlayerNames] = useState({ X: "Player X", O: "Player O" });
   const [isModalOpen, setIsModalOpen] = useState(true);
   const [selectedCells, setSelectedCells] = useState([]);
@@ -49,6 +49,7 @@ const Index = () => {
         duration: 3000,
         isClosable: true,
       });
+      setScores({ ...scores, draws: scores.draws + 1 });
       setTimeout(resetBoard, 3000);
     } else {
       setPlayer(player === "X" ? "O" : "X");
@@ -156,6 +157,10 @@ const Index = () => {
           <Text fontSize="2xl">{scores.O}</Text>
         </Box>
       </Flex>
+      <Box textAlign="center" mt={4}>
+        <Text fontWeight="bold">Draws</Text>
+        <Text fontSize="2xl">{scores.draws}</Text>
+      </Box>
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <ModalOverlay />
         <ModalContent>
