@@ -3,8 +3,7 @@ import { Box, Button, Flex, Grid, Heading, Icon, Switch, Text, useColorMode, use
 import { FaTimes, FaRegCircle } from "react-icons/fa";
 
 const Index = () => {
-  const [gridSize, setGridSize] = useState(3);
-  const [board, setBoard] = useState(Array(gridSize * gridSize).fill(null));
+  const [board, setBoard] = useState(Array(9).fill(null));
   const [player, setPlayer] = useState("X");
   const [scores, setScores] = useState({ X: 0, O: 0 });
   const { colorMode, toggleColorMode } = useColorMode();
@@ -74,7 +73,7 @@ const Index = () => {
   };
 
   const resetBoard = () => {
-    setBoard(Array(gridSize * gridSize).fill(null));
+    setBoard(Array(9).fill(null));
     setPlayer("X");
   };
 
@@ -95,15 +94,8 @@ const Index = () => {
         </Heading>
         <Switch isChecked={colorMode === "dark"} onChange={toggleColorMode} colorScheme="purple" />
       </Flex>
-      <Flex justify="center" align="center" mb={4}>
-        <Button onClick={() => setGridSize(3)} mr={2} colorScheme={gridSize === 3 ? "teal" : "gray"}>
-          3x3
-        </Button>
-        <Button onClick={() => setGridSize(4)} colorScheme={gridSize === 4 ? "teal" : "gray"}>
-          4x4
-        </Button>
-      </Flex>
-      <Grid templateColumns={`repeat(${gridSize}, 1fr)`} gap={2} maxW="400px" mx="auto">
+
+      <Grid templateColumns="repeat(3, 1fr)" gap={2} maxW="400px" mx="auto">
         {board.map((value, index) => (
           <Box
             key={index}
