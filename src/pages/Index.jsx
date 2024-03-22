@@ -9,7 +9,7 @@ const Index = () => {
   const [scores, setScores] = useState({ X: 0, O: 0 });
   const [playerNames, setPlayerNames] = useState({ X: "Player X", O: "Player O" });
   const [isModalOpen, setIsModalOpen] = useState(true);
-  
+
   const toast = useToast();
 
   useEffect(() => {
@@ -99,7 +99,7 @@ const Index = () => {
   };
 
   return (
-    <Box p={4} minHeight="100vh">
+    <Flex direction="column" p={4} height="100vh" justify="center" align="center">
       <Flex justify="space-between" align="center" mb={4}>
         <Heading as="h1" size="xl">
           Tic Tac Toe
@@ -169,7 +169,7 @@ const Index = () => {
           New Game
         </Button>
       </Flex>
-    </Box>
+    </Flex>
   );
 };
 
