@@ -124,6 +124,7 @@ const Index = () => {
             bg="gray.200"
             border="1px solid"
             borderColor="gray.400"
+            borderRadius="md"
             w="100px"
             h="100px"
             onClick={() => handleClick(index)}
