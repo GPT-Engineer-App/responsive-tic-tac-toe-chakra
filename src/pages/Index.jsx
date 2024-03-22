@@ -153,19 +153,15 @@ const Index = () => {
       <Flex justify="center" mt={8}>
         <Box mr={8}>
           <Flex align="center">
-            <Text fontWeight="bold" mr={2}>
-              {playerNames.X}
-            </Text>
-            <Icon as={FaTimes} color="red.500" />
+            <Icon as={FaTimes} color="red.500" mr={2} />
+            <Text fontWeight="bold">{playerNames.X}</Text>
           </Flex>
           <Text fontSize="2xl">{scores.X}</Text>
         </Box>
         <Box>
           <Flex align="center">
-            <Text fontWeight="bold" mr={2}>
-              {playerNames.O}
-            </Text>
-            <Icon as={FaRegCircle} color="blue.500" />
+            <Icon as={FaRegCircle} color="blue.500" mr={2} />
+            <Text fontWeight="bold">{playerNames.O}</Text>
           </Flex>
           <Text fontSize="2xl">{scores.O}</Text>
         </Box>
@@ -181,11 +177,17 @@ const Index = () => {
           <ModalCloseButton />
           <ModalBody>
             <FormControl id="playerX" mb={4}>
-              <FormLabel>Player X</FormLabel>
+              <FormLabel>
+                <Icon as={FaTimes} color="red.500" mr={2} />
+                Player X
+              </FormLabel>
               <Input type="text" value={playerNames.X} onChange={(event) => handleNameChange(event, "X")} />
             </FormControl>
             <FormControl id="playerO" mb={8}>
-              <FormLabel>Player O</FormLabel>
+              <FormLabel>
+                <Icon as={FaRegCircle} color="blue.500" mr={2} />
+                Player O
+              </FormLabel>
               <Input type="text" value={playerNames.O} onChange={(event) => handleNameChange(event, "O")} />
             </FormControl>
             <Button colorScheme="blue" onClick={() => setIsModalOpen(false)}>
