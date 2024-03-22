@@ -45,16 +45,16 @@ const Index = () => {
         status: toastColor,
         duration: 3000,
         isClosable: true,
-        onCloseComplete: resetBoard,
       });
+      setTimeout(resetBoard, 3000);
     } else if (newBoard.every((cell) => cell !== null)) {
       toast({
         title: "It's a draw!",
         status: drawColor,
         duration: 3000,
         isClosable: true,
-        onCloseComplete: resetBoard,
       });
+      setTimeout(resetBoard, 3000);
     } else {
       setPlayer(player === "X" ? "O" : "X");
     }
