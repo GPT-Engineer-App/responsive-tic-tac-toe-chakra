@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Box, Button, Flex, Grid, Heading, Icon, Switch, Text, useColorMode, useToast, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, FormControl, FormLabel, Input } from "@chakra-ui/react";
+import { Box, Button, Flex, Grid, Heading, Icon, Text, useToast, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, FormControl, FormLabel, Input } from "@chakra-ui/react";
+import ColorModeToggle from "../components/ColorModeToggle";
 import { FaTimes, FaRegCircle } from "react-icons/fa";
 
 const Index = () => {
@@ -8,7 +9,7 @@ const Index = () => {
   const [scores, setScores] = useState({ X: 0, O: 0 });
   const [playerNames, setPlayerNames] = useState({ X: "Player X", O: "Player O" });
   const [isModalOpen, setIsModalOpen] = useState(true);
-  const { colorMode, toggleColorMode } = useColorMode();
+  
   const toast = useToast();
 
   useEffect(() => {
@@ -103,7 +104,7 @@ const Index = () => {
         <Heading as="h1" size="xl">
           Tic Tac Toe
         </Heading>
-        <Switch isChecked={colorMode === "dark"} onChange={toggleColorMode} colorScheme="purple" />
+        <ColorModeToggle />
       </Flex>
 
       <Grid templateColumns="repeat(3, 1fr)" gap={2} maxW="400px" mx="auto">
