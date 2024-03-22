@@ -112,7 +112,7 @@ const Index = () => {
   };
 
   return (
-    <Flex direction="column" p={4} height="100vh" position="relative">
+    <Flex direction="column" p={4} minHeight="100vh" position="relative" justify="center">
       <Box position="absolute" top={4} right={4}>
         <ColorModeToggle />
       </Box>
@@ -154,7 +154,7 @@ const Index = () => {
         </Text>
         {player === "X" ? <Icon as={FaTimes} color="red.500" /> : <Icon as={FaRegCircle} color="blue.500" />}
       </Flex>
-      <Flex justify="center" mt={8}>
+      <Flex justify="center" mt={8} align="flex-end">
         <Box mr={8}>
           <Flex direction="column" align="flex-end">
             <Flex align="center">
@@ -164,7 +164,7 @@ const Index = () => {
             <Text fontSize="2xl">{scores.X}</Text>
           </Flex>
         </Box>
-        <Box>
+        <Box mr={8}>
           <Flex direction="column" align="flex-end">
             <Flex align="center">
               <Icon as={FaRegCircle} color="blue.500" mr={2} />
@@ -173,10 +173,12 @@ const Index = () => {
             <Text fontSize="2xl">{scores.O}</Text>
           </Flex>
         </Box>
-      </Flex>
-      <Flex direction="column" align="flex-end" mt={4}>
-        <Text fontWeight="bold">Draws</Text>
-        <Text fontSize="2xl">{scores.draws}</Text>
+        <Box>
+          <Flex direction="column" align="flex-end">
+            <Text fontWeight="bold">Draws</Text>
+            <Text fontSize="2xl">{scores.draws}</Text>
+          </Flex>
+        </Box>
       </Flex>
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <ModalOverlay />
