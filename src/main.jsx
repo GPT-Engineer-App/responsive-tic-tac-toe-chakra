@@ -11,7 +11,12 @@ const colors = {
   },
 };
 
-const theme = extendTheme({ colors });
+const theme = extendTheme({
+  colors,
+  config: {
+    initialColorMode: "dark",
+  },
+});
 
 function Root() {
   const { colorMode } = useColorMode();
@@ -25,6 +30,4 @@ function Root() {
   );
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <Root />
-);
+ReactDOM.createRoot(document.getElementById("root")).render(<Root />);
