@@ -112,7 +112,10 @@ const Index = () => {
   };
 
   return (
-    <Flex direction="column" p={4} height="100vh" justify="center" align="center">
+    <Flex direction="column" p={4} height="100vh" position="relative">
+      <Box position="absolute" top={4} right={4}>
+        <ColorModeToggle />
+      </Box>
       <Flex justify="space-between" align="center" mb={4}>
         <Heading as="h1" size="xl">
           Tic Tac Toe
