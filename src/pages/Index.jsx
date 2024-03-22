@@ -116,7 +116,7 @@ const Index = () => {
       <Box position="absolute" top={4} right={4}>
         <ColorModeToggle />
       </Box>
-      <Heading as="h1" size="xl" textAlign="center" mb={8} bgGradient="linear(to-r, #F4D03F, #16A085)">
+      <Heading as="h1" size="xl" textAlign="center" mb={8} bgGradient="linear(to-r, #F4D03F, #16A085)" bgClip="text">
         Tic Tac Toe
       </Heading>
 
