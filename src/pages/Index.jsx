@@ -116,25 +116,7 @@ const Index = () => {
       <Box position="absolute" top={4} right={4}>
         <ColorModeToggle />
       </Box>
-      <Heading
-        as="h1"
-        size="xl"
-        textAlign="center"
-        mb={8}
-        bg="linear-gradient(to-r, #F4D03F, #16A085)"
-        backgroundClip="text"
-        color="transparent"
-        _before={{
-          content: `""`,
-          position: "absolute",
-          left: 0,
-          right: 0,
-          top: 0,
-          bottom: 0,
-          bgGradient: "linear(to-r, #F4D03F, #16A085)",
-          zIndex: -1,
-        }}
-      >
+      <Heading as="h1" size="xl" textAlign="center" mb={8} bgGradient="linear(to-r, #F4D03F, #16A085)" bgClip="text">
         Tic Tac Toe
       </Heading>
 
