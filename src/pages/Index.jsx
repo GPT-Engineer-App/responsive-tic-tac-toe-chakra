@@ -108,6 +108,7 @@ const Index = () => {
     resetBoard();
     setSelectedCells([]);
     setIsModalOpen(true);
+    setPlayer(Math.random() < 0.5 ? "X" : "O");
   };
 
   return (
