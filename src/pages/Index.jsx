@@ -153,24 +153,28 @@ const Index = () => {
       </Flex>
       <Flex justify="center" mt={8}>
         <Box mr={8}>
-          <Flex align="center">
-            <Icon as={FaTimes} color="red.500" mr={2} />
-            <Text fontWeight="bold">{playerNames.X}</Text>
+          <Flex direction="column" align="flex-end">
+            <Flex align="center">
+              <Icon as={FaTimes} color="red.500" mr={2} />
+              <Text fontWeight="bold">{playerNames.X}</Text>
+            </Flex>
+            <Text fontSize="2xl">{scores.X}</Text>
           </Flex>
-          <Text fontSize="2xl">{scores.X}</Text>
         </Box>
         <Box>
-          <Flex align="center">
-            <Icon as={FaRegCircle} color="blue.500" mr={2} />
-            <Text fontWeight="bold">{playerNames.O}</Text>
+          <Flex direction="column" align="flex-end">
+            <Flex align="center">
+              <Icon as={FaRegCircle} color="blue.500" mr={2} />
+              <Text fontWeight="bold">{playerNames.O}</Text>
+            </Flex>
+            <Text fontSize="2xl">{scores.O}</Text>
           </Flex>
-          <Text fontSize="2xl">{scores.O}</Text>
         </Box>
       </Flex>
-      <Box textAlign="center" mt={4}>
+      <Flex direction="column" align="flex-end" mt={4}>
         <Text fontWeight="bold">Draws</Text>
         <Text fontSize="2xl">{scores.draws}</Text>
-      </Box>
+      </Flex>
       <Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
         <ModalOverlay />
         <ModalContent>
