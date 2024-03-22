@@ -151,7 +151,7 @@ const Index = () => {
         </Text>
         {player === "X" ? <Icon as={FaTimes} color="red.500" /> : <Icon as={FaRegCircle} color="blue.500" />}
       </Flex>
-      <Divider my={8} maxW="400px" mx="auto" />
+      <Divider my={8} maxW="400px" mx="auto" borderColor="linear-gradient(to right, #F4D03F, #16A085)" />
       <Flex justify="center" mb={12} align="flex-end">
         <Box mr={8}>
           <Flex direction="column" align="flex-end">
