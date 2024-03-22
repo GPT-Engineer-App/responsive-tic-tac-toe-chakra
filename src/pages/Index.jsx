@@ -80,9 +80,9 @@ const Index = () => {
 
   const renderIcon = (value) => {
     if (value === "X") {
-      return <Icon as={FaTimes} boxSize={8} color="red.500" />;
+      return <Icon as={FaTimes} boxSize={12} color="red.500" />;
     } else if (value === "O") {
-      return <Icon as={FaRegCircle} boxSize={8} color="blue.500" />;
+      return <Icon as={FaRegCircle} boxSize={12} color="blue.500" />;
     }
     return null;
   };
@@ -105,7 +105,24 @@ const Index = () => {
       </Flex>
       <Grid templateColumns={`repeat(${gridSize}, 1fr)`} gap={2} maxW="400px" mx="auto">
         {board.map((value, index) => (
-          <Box key={index} bg={colorMode === "dark" ? "gray.700" : "gray.100"} borderRadius="md" p={4} onClick={() => handleClick(index)} cursor="pointer" display="flex" justifyContent="center" alignItems="center" boxShadow="md" transition="all 0.2s" _hover={{ transform: "scale(1.05)" }}>
+          <Box
+            key={index}
+            bg={colorMode === "dark" ? "gray.700" : "gray.100"}
+            borderRadius="md"
+            w="100px"
+            h="100px"
+            onClick={() => handleClick(index)}
+            cursor="pointer"
+            display="flex"
+            justifyContent="center"
+            alignItems="center"
+            boxShadow="md"
+            transition="all 0.2s"
+            _hover={{ transform: "scale(1.05)" }}
+            sx={{
+              aspectRatio: "1 / 1",
+            }}
+          >
             {renderIcon(value)}
           </Box>
         ))}
