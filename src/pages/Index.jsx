@@ -41,7 +41,7 @@ const Index = () => {
         isClosable: true,
       });
       setScores({ ...scores, [winner]: scores[winner] + 1 });
-      resetBoard();
+      setTimeout(resetBoard, 3000);
     } else if (newBoard.every((cell) => cell !== null)) {
       toast({
         title: "It's a draw!",
@@ -49,7 +49,7 @@ const Index = () => {
         duration: 3000,
         isClosable: true,
       });
-      resetBoard();
+      setTimeout(resetBoard, 3000);
     } else {
       setPlayer(player === "X" ? "O" : "X");
     }
