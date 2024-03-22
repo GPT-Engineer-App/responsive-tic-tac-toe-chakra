@@ -35,7 +35,7 @@ const Index = () => {
     const winner = calculateWinner(newBoard);
     if (winner) {
       toast({
-        title: `Player ${winner} wins!`,
+        title: `${playerNames[winner]} wins!`,
         status: "success",
         duration: 3000,
         isClosable: true,
