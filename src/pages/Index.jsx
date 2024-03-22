@@ -116,12 +116,9 @@ const Index = () => {
       <Box position="absolute" top={4} right={4}>
         <ColorModeToggle />
       </Box>
-      <Flex justify="space-between" align="center" mb={4}>
-        <Heading as="h1" size="xl">
-          Tic Tac Toe
-        </Heading>
-        <ColorModeToggle />
-      </Flex>
+      <Heading as="h1" size="xl" textAlign="center" mb={8}>
+        Tic Tac Toe
+      </Heading>
 
       <Grid templateColumns="repeat(3, 1fr)" gap={2} maxW="400px" mx="auto">
         {board.map((value, index) => (
