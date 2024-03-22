@@ -103,7 +103,7 @@ const Index = () => {
           4x4
         </Button>
       </Flex>
-      <Grid templateColumns={`repeat(${gridSize}, 1fr)`} gap="1px" maxW="400px" mx="auto">
+      <Grid templateColumns={`repeat(${gridSize}, 1fr)`} gap={0} maxW="400px" mx="auto">
         {board.map((value, index) => (
           <Box
             key={index}
