@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Box, Button, Flex, Grid, Heading, Icon, Text, useToast, Modal, ModalOverlay, ModalContent, ModalHeader, ModalBody, ModalCloseButton, FormControl, FormLabel, Input } from "@chakra-ui/react";
 import ColorModeToggle from "../components/ColorModeToggle";
-import { FaTimes, FaRegCircle } from "react-icons/fa";
+import { FaTimes, FaRegCircle, FaRedo } from "react-icons/fa";
 
 const Index = () => {
   const [board, setBoard] = useState(Array(9).fill(null));
@@ -202,8 +202,8 @@ const Index = () => {
         </ModalContent>
       </Modal>
       <Flex justify="center" mt={4}>
-        <Button colorScheme="blue" onClick={startNewGame}>
-          New Game
+        <Button leftIcon={<FaRedo />} variant="ghost" onClick={startNewGame}>
+          Restart Game
         </Button>
       </Flex>
     </Flex>
