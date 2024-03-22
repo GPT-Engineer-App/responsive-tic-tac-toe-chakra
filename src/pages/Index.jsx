@@ -88,7 +88,7 @@ const Index = () => {
   };
 
   return (
-    <Box p={4}>
+    <Box p={4} bg="orange.50">
       <Flex justify="space-between" align="center" mb={4}>
         <Heading as="h1" size="xl">
           Tic Tac Toe
@@ -103,7 +103,7 @@ const Index = () => {
           4x4
         </Button>
       </Flex>
-      <Grid templateColumns={`repeat(${gridSize}, 1fr)`} gap={2} maxW="400px" mx="auto">
+      <Grid templateColumns={`repeat(${gridSize}, 1fr)`} gap={1} maxW="400px" mx="auto">
         {board.map((value, index) => (
           <Box
             key={index}
